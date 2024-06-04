@@ -1,3 +1,4 @@
 REMOTE_HOST=tunnel-destination.example.com
 REMOTE_USER=user-on-the-other-side
 REMOTE_PORT=port-typically-22
+STRICT_HOST_KEY_CHECKING=yes
