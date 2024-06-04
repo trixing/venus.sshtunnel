@@ -9,4 +9,5 @@ On the remote side, add a user
 
 On the gx / venus side
 * create a ssh keypair ssh-keygen -t rsa
-* copy the public key to /home/sshtunnel-username/.ssh/authorized_keys
+* copy the public key from /home/root/.ssh/id_rsa.pub to /home/sshtunnel-username/.ssh/authorized_keys
+* 
