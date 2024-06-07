@@ -1,0 +1,23 @@
+[Unit]
+Description=Keeps a tunnel to a jump host open
+After=network-online.target
+
+[Service]
+User=sshtunnel
+Restart=always
+RestartSec=3
+TimeoutStopSec=10
+ExecStart=/usr/bin/ssh -N \
+   -o "ServerAliveInterval 60" \
+   -o "ServerAliveCountMax 3" \
+   -o ExitOnForwardFailure=yes \
+   -o StrictHostKeyChecking=yes \
+   -o TCPKeepAlive=yes \
+   -p 22 \
+   -l sshtunnel-remote-user \
+   -R <remote-port>:127.0.0.1:22 \
+   -i /home/sshtunnel/.ssh/id_rsa \
+   sshtunnel.example.com
+
+[Install]
+WantedBy=multi-user.target
